@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: trponess <trponess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 07:47:48 by trponess          #+#    #+#             */
-/*   Updated: 2017/11/08 07:51:27 by trponess         ###   ########.fr       */
+/*   Created: 2017/11/09 12:44:31 by trponess          #+#    #+#             */
+/*   Updated: 2017/11/09 12:44:36 by trponess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void 	ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int s;
 

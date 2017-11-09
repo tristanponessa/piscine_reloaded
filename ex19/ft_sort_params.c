@@ -6,28 +6,24 @@
 /*   By: trponess <trponess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:20:33 by trponess          #+#    #+#             */
-/*   Updated: 2017/11/08 11:19:04 by trponess         ###   ########.fr       */
+/*   Updated: 2017/11/08 17:00:25 by trponess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
-void	ft_putstr(char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
-	while (*str)
+	int i;
+
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		write(1, str, 1);
-		str++;
+		if (s1[i] < s2[i] || s1[i] > s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-}
-
-void	ft_swap(char **a, char **b)
-{
-	char *temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	return (0);
 }
 
 void	ft_print_params(char **av)
@@ -39,35 +35,34 @@ void	ft_print_params(char **av)
 	i = 0;
 	while (av[j])
 	{
-		ft_putstr(av[j]);
-		write(1, "\n", 1);
+		while (av[j][i])
+		{
+			ft_putchar(av[j][i]);
+			i++;
+		}
+		ft_putchar('\n');
+		i = 0;
 		j++;
 	}
 }
 
-int		 main(int ac, char **av)
+int		main(int ac, char **av)
 {
-	int i;
-	int j;
-	int ch;
+	int		i;
+	char	*save;
 
 	i = 1;
-	j = 0;
-	ch = 1;
+	if (ac == 1)
+		return (0);
 	while (av[i + 1])
 	{
-		while (av[i][j] && ch == 1)
+		if (ft_strcmp(av[i], av[i + 1]) > 0)
 		{
-			if (av[i][j] > av[i + 1][j])
-			{
-				ft_swap(&av[i], &av[i + 1]);
-				ch = 0;
-				j = 0;
-				i = 1;
-			}
-			j++;
+			save = av[i];
+			av[i] = av[i + 1];
+			av[i + 1] = save;
+			i = 0;
 		}
-		ch = 1;
 		i++;
 	}
 	ft_print_params(av);

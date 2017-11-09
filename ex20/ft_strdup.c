@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: trponess <trponess@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 11:21:56 by trponess          #+#    #+#             */
-/*   Updated: 2017/11/08 12:21:22 by trponess         ###   ########.fr       */
+/*   Created: 2017/11/09 12:40:18 by trponess          #+#    #+#             */
+/*   Updated: 2017/11/09 12:41:13 by trponess         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		ft_strlen(char *str)
 
 char	*ft_strdup(char *src)
 {
-	int i;
-	char *dup;
+	int		i;
+	char	*dup;
 
 	i = 0;
 	dup = (char *)malloc(sizeof(char) * (ft_strlen(src)));

@@ -6,29 +6,19 @@
 #    By: trponess <trponess@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 20:46:50 by trponess          #+#    #+#              #
-#    Updated: 2017/11/07 20:58:53 by trponess         ###   ########.fr        #
+#    Updated: 2017/11/09 12:14:23 by trponess         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = all_together.a
+all: display_file.a
 
-SRC = ex06/ft_print_alphabet.c\
-ex07/ft_print_numbers.c\
-ex08/ft_is_negative.c
-
-LIBFILES = 	ft_print_alphabet.o\
-ft_print_numbers.o\
-ft_is_negative.o
-
-all: $(NAME)
-
-$(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRC)
-	ar rc $(NAME) $(LIBFILES)
-	rm *.o
-	gcc test_all_functions.c all_together.a
+display_file.a:
+	gcc -Wall -Wextra -Werror -c main.c
+	ar rc display_file.a main.o
+	gcc -Wall -Wextra -Werror -o display_file main.c display_file.a
 
 clean:
-	rm -f $(LIBFILES) *.a a.out
+	rm -f main.o
 
-reboot: clean all
+fclean: clean
+	rm -f display_file.a
